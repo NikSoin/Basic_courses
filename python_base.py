@@ -1213,3 +1213,554 @@ import  sys
 #     print(print(f"y = {k} * x {b}"))
 
 
+# Задача 3. Сумма и разность
+
+# def summa(n):
+#     s = 0
+#     while n !=0:
+#         s += n%10
+#         n = n//10
+#     return s
+#
+# def amount(n):
+#     a = len(str(n))
+#     return a
+#
+# N =  500
+# print(summa(N) - amount(N))
+
+
+# Задача 4. Число наоборот 3
+
+# def change(n):
+#     # dlinadrobi = len(str((n - n//1)) - 2
+#     d = round(n - n//1,2)
+#     print(d)
+#     n = int(n//1)
+#     print(n)
+#     sn = ''
+#     sd = ''
+#     while n != 0:
+#         sn += str(n%10)
+#         n = n//10
+#     while d != 0:
+#         d = d*10
+#         sd += str(d%1)
+#         d = d//10
+#     print(sn)
+#     print(sd)
+#     sn = int(sn)
+#     sd = float(sd)*10**(-len(sd))
+#     print(sn)
+#     print(sd)
+#     print(sn+sd)
+#     return sn+sd
+#
+# N = 102.12
+# K = 123.34
+# change(N)
+
+
+# Задача 5. Наименьший делитель
+
+# def minimum(n):
+#     i = 2
+#     while True:
+#         if n%i == 0:
+#             break
+#         i+=1
+#     return i
+#
+# n = 6
+# print(minimum(n))
+
+
+# Задача 6. Монетка 2
+
+# x = 0.1
+# y = -1
+# c = math.sqrt(x**2+y**2)
+# if c <= 1:
+#     print('Монетка где-то рядом')
+# else:
+#     print('Монетки в области нет')
+
+# Задача 7. Годы
+
+# a = 1900
+# b = 2100
+# for i in range(a,b+1):
+#     c = 0
+#     if i//1000 == i%1000//100 == i%100//10 or i//1000 == i%1000//100 == i%10 or i//1000 == i%100//10 == i%10 or i%1000//100 == i%100//10 == i%10:
+#         print(i)
+
+
+# 15.6 Практическая работа (автотесты)
+
+# n = 14
+# N = []
+# for i in range(n):
+#     if i%2 == 1:
+#         N.append(i)
+# print(N)
+
+
+# Задача 2. Турнир
+
+# n = ['Артемий', 'Борис', 'Влад', 'Гоша', 'Дима', 'Евгений', 'Женя', 'Захар']
+# for i in range(0,len(n),2):
+#     print(n[i])
+
+
+# Задача 3. Клетки
+
+# n = [1,3,2,5,2,4,7,8,1]
+# for i, j in enumerate(n):
+#     if j < i+1:
+#         print(f'Эффективность {i+1} клетки: {j}')
+
+
+# Задача 4. Видеокарты
+
+# s = [3070, 2060, 3090, 3070, 3090]
+# for j,i in enumerate(s):
+#     if i == max(s):
+#         s.remove(s[j])
+# print(s)
+
+
+# Задача 5. Кино
+
+# n = 3
+# s = ['бэмби','леон','бимуви','маяк','золушка','мария']
+# loved = []
+# for i in range(1, n+1):
+#     f = input(f'введите название {i} фильма:  ')
+#     if f in s:
+#         loved.append(f)
+#     else:
+#         print('no')
+#
+# print(f'ваши фильмы:', ' '.join(loved))
+
+
+# Задача 6. Анализ слова
+
+# s = 'прившркркркет'
+# su = []
+# for i in s:
+#     su.append(i)
+#
+# su = set(su)
+# print(f'уникальных букв в слове {s}: {len(su)}')
+
+
+# Задача 7. Контейнеры
+
+# n = 4
+# s = [165,165,163,162,161,159,159,143,132,132,100,99,99,99,98]
+# sn = []
+# p = 0
+# c = 0
+#
+# k = int(input('введите массу нового контейнера:  '))
+# try:
+#     p = s.index(k)
+# except:
+#     ValueError
+# try:
+#     c = s.count(k)
+# except:
+#     ValueError
+# print(p)
+# print(c)
+# if p != 0:
+#     for i in range(p+c):
+#         sn.append(s[i])
+#     sn.insert(p+c,k)
+#     for i in range(p+c,len(s)):
+#         sn.append(s[i])
+# elif p == 0:
+#     for j, i in enumerate(s):
+#         if k > i:
+#             for n in range(j):
+#                 sn.append(s[n])
+#             sn.insert(j, k)
+#             for m in range(j,len(s)):
+#                 sn.append(s[m])
+#             break
+#     sn = s
+#     sn.append(k)
+#
+# print(sn)
+
+
+# Задача 8. Бегущие цифры
+
+# def scroll(n,s,k):
+#     new_index = []
+#     if k > n:
+#         k = k%n
+#     k = n - k
+#     for i in range(n):
+#         if i + k < n:
+#             new_index.append(s[i+k])
+#         else:
+#             ks = (k + i)%n
+#             new_index.append(s[ks])
+#     return new_index
+#
+# n = 7
+# s = [1, 2, 3, 4, 5, 6, 7]
+# k = 8
+# print(scroll(n,s,k))
+
+
+# Задача 9. Анализ слова 2
+
+# def palindrom(s):
+#     if len(s)%2 == 0:
+#         d = 0
+#     else:
+#         d = 1
+#     for i in range(len(s)//2 + d):
+#         if s[i] != s[len(s)-i-1]:
+#             p = 'не палиндром'
+#             break
+#         else:
+#             p = 'палиндром'
+#     return p
+#
+#
+# c = 'мылоголым'
+# n = 'унизилизину'
+# q = 'тебе оно ебет'
+# f = 'ароза упаланалапу азора'
+# e = 'улыбок тебе дед мокар раком дед ебет кобылу'
+# print(palindrom(c),palindrom(n),palindrom(q),palindrom(f),palindrom(e))
+
+
+# Задача 10. Сортировка
+
+
+# n = [4, 1, -3, 0, 10]
+#
+# while True:
+#     c = 1
+#     print(range(len(n)))
+#     for j, i in enumerate(n):
+#         print(j,i)
+#         if j+1 in range(len(n)) and n[j] > n[j+1]:
+#                  n[j], n[j+1] = n[j+1], n[j]
+#                  c = 2
+#     if c == 1:
+#         break
+#
+# print(n)
+
+
+
+# 16.6 Практическая работа
+
+# Задача 1. Страшный код
+
+# def first(a,b):
+#     a.extend(b)
+#     print(a.count(5))
+#     for i in range(a.count(5)):
+#         a.pop(a.index(5))
+#     return a
+#
+# def second(a,c):
+#     a.extend(c)
+#     print(a.count(3))
+#     return a
+#
+#
+# a = [1, 5, 3]
+# b = [1, 5, 1, 5]
+# c = [1, 3, 1, 5, 3, 3]
+# print(second(first(a,b),c))
+
+
+# Задача 2. Шеренга
+
+# a = [i for i in range(160, 177, 2)]
+# b = [i for i in range(162, 181, 3)]
+# a.extend(b)
+# a.sort()
+# print(a)
+
+
+# Задача 3. Детали
+
+# def price(shop,s):
+#     k = 0
+#     c = 0
+#     for i in shop:
+#         if i[0] == s:
+#             k += 1
+#             c += i[1]
+#     return k,c
+#
+# shop = [['каретка', 1200], ['шатун', 1000], ['седло', 300], ['педаль', 100], ['седло', 1500], ['рама', 12000], ['обод', 2000], ['шатун', 200], ['седло', 2700]]
+# s = 'седло'
+# print("k = %s, price = %s" %(price(shop,s)))
+
+
+# Задача 4. Вечеринка
+
+# guests = ['Петя', 'Ваня', 'Саша', 'Лиза', 'Катя']
+#
+# while True:
+#     new = input('введите имя:  ')
+#     if new == 'пора спать':
+#         break
+#     elif new not in guests and len(guests) < 6:
+#         guests.append(new)
+#     elif new in guests:
+#         guests.remove(new)
+#     print(guests)
+# print('конец вечеринки')
+
+
+# Задача 5. Песни
+
+# def playlist_length(name,s):
+#     for i in range(len(s)):
+#         if name == s[i][0]:
+#             t = s[i][1]
+#     return t
+#
+# violator_songs = [
+#     ['World in My Eyes', 4.86],
+#     ['Sweetest Perfection', 4.43],
+#     ['Personal Jesus', 4.56],
+#     ['Halo', 4.9],
+#     ['Waiting for the Night', 6.07],
+#     ['Enjoy the Silence', 4.20],
+#     ['Policy of Truth', 4.76],
+#     ['Blue Dress', 4.29],
+#     ['Clean', 5.83]
+# ]
+#
+# n = 3
+# name1 = 'Halo'
+# name2 = 'Enjoy the Silence'
+# name3 = 'Clean'
+# length = playlist_length(name3,violator_songs) + playlist_length(name2, violator_songs) + playlist_length(name1, violator_songs)
+# print(round(length,2))
+
+
+# Задача 6. Уникальные элементы
+
+# l = [1, 2, 3]
+# l2 = [2, 4, 6, 3, 3, 2, 1]
+#
+# l.extend(l2)
+# l = list(set(l))
+# print(l)
+
+
+# Задача 7. Ролики
+
+# k = [41,40,39,42]
+# n = [42,41,40]
+# c = 0
+# for g, i in enumerate(k):
+#     for h, j in enumerate(n):
+#         if i == j:
+#             c += 1
+#             k.remove(i)
+#             n.remove(j)
+# print(c)
+
+
+# Задача 8. Считалка
+
+# l = [1, 2, 3, 4, 5]
+# s = 1
+# i = 0
+# n = 7
+# while len(l) > 1:
+#     i = (i+n)%len(l)-1
+#     if i == -1:
+#         i = len(l)-1
+#     l.pop(i)
+#
+# print(l)
+
+
+# Задача 9. Друзья
+
+# n = 3
+# d = 1
+# raspiski = []
+# balance = [[i, 0] for i in range(1,n+1)]
+# print(balance)
+# for i in range(d):
+#     k = int(input('komu:'))
+#     o = int(input('ot kogo:'))
+#     s = int(input('skolko:'))
+#     raspiski.append([k,o,s])
+#     print(raspiski)
+#
+# for i in balance:
+#     print(i[0])
+#     for j in raspiski:
+#         if i[0] == j[0]:
+#             i[1] += j[2]
+#         if i[0] == j[1]:
+#             i[1] -= j[2]
+# print(balance)
+
+
+# Задача 10. Симметричная последовательность
+
+# def palindrom_check(chec):
+#     if len(chec) % 2 == 0:
+#         d = 0
+#     else:
+#         d = 1
+#     for num in range(len(chec)//2 + d):
+#         if chec[num] != p[len(p)-num-1]:
+#             r = 'не палиндром'
+#             break
+#         else:
+#             r = 'палиндром'
+#     return r
+#
+#
+# p = [1, 2, 3, 5, 7, 7, 7]
+# n = len(p)
+# chec = []
+# chec.extend(p)
+# v = 1
+# dopolnenie = []
+#
+# for i in range(n-1):
+#     if palindrom_check(chec) == 'палиндром':
+#         break
+#     else:
+#         chec.pop(0)
+#         v += 1
+#
+# for i in range(v-2, -1, -1):
+#     dopolnenie.append(p[i])
+#
+# p.extend(dopolnenie)
+# print(f'нужно цифр: {v-1}, новая последовательность: {p}')
+
+
+
+# 17.7 Практическая работа
+
+# Задача 1. Гласные буквы
+
+# text = 'я бы никогда не купил шаурму без перца, это извращение и издевательство над традиционной культурой шаурмэйкинга'
+# glas = ['а', 'е', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я']
+# glastext = [i for i in text if i in glas]
+# print(glastext, '\n', len(glastext))
+
+
+# Задача 2. Генерация
+
+# n = 10
+# strangelist = [(1 if i%2 == 0 else i%5) for i in range(n)]
+# print(strangelist)
+
+
+# Задача 3. Случайные соревнования
+
+# l1 = [round(random.uniform(5,10),3) for _ in range(20)]
+# l2 = [round(random.uniform(5,10),3) for _ in range(20)]
+# l3 = [max(l1[i],l2[i]) for i in range(19)]
+# print(f'{l1}\n {l2}\n {l3}\n')
+
+
+# Задача 4. Тренируемся со срезами
+
+# alphabet = 'abcdefg'
+# print(f'1:{alphabet[:]}')
+# print(f'1:{alphabet[::-1]}')
+# print(f'1:{alphabet[0::2]}')
+# print(f'1:{alphabet[1::2]}')
+# print(f'1:{alphabet[:1]}')
+# print(f'1:{alphabet[:-2:-1]}')
+# print(f'1:{alphabet[3:4:]}')
+# print(f'1:{alphabet[-3::1]}')
+# print(f'1:{alphabet[3:5:]}')
+# print(f'1:{alphabet[4:2:-1]}')
+
+
+# Задача 5. Разворот
+
+# str = 'hqwehrty'
+# h_index = [j for j, i in enumerate(str) if i == 'h']
+# print(f'Развёрнутая последовательность между первым и последним h: {str[h_index[1]:h_index[0]:-1]}')
+
+
+# Задача 6. Сжатие списка
+
+# n = 10
+# lst = [0, 2, 1, 0, 0, 0, 1, 0, 2, 0]
+# lst.sort(key=lambda x: x==0)
+# p = lst.count(0)
+# for i in range(p):
+#     lst.pop()
+# print(lst)
+
+
+# Задача 7. Двумерный список
+
+# l = [[i, i+4, i+8] for i in range(1,5)]
+# print(l)
+
+
+# Задача 8. Развлечение
+
+# def brosok(palki,br):
+#     for j, i in enumerate(palki):
+#         if j in range(br[0]-1, br[1]):
+#             palki[j] = '.'
+#     return palki
+#
+#
+# n = 10
+# k = 3
+#
+# a = [8,10]
+# b = [2,5]
+# c = [3,6]
+# palki = ['1' for i in range(10)]
+#
+# print(''.join(brosok(palki,a)))
+# print(''.join(brosok(palki,b)))
+# print(''.join(brosok(palki,c)))
+
+
+# Задача 9. Список списков
+
+# nice_list = [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[10, 11, 12], [13, 14, 15], [16, 17, 18]]]
+# list = [k for i in nice_list for j in i for k in j]
+# print(list)
+
+
+# Задача 10. Шифр Цезаря
+
+# def shifr(s,sdvig):
+#     p = ''
+#     for i in s:
+#         if i == ' ':
+#             p += chr(ord(i))
+#         elif ord(i) + sdvig <= 1103:
+#             p += chr(ord(i) + sdvig)
+#         else:
+#             p += chr(ord(i) + sdvig - 32)
+#     return p
+#
+#
+# s = 'это питон'
+# sdvig = 3
+# alf = [chr(i) for i in range(ord('а'), ord('а')+32)]
+# print(shifr(s,sdvig))
