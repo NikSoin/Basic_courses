@@ -1764,3 +1764,512 @@ import  sys
 # sdvig = 3
 # alf = [chr(i) for i in range(ord('а'), ord('а')+32)]
 # print(shifr(s,sdvig))
+
+
+# 18.6 Практическая работа
+
+# Задача 1. Меню ресторана
+
+# s = 'утиное филе;фланк-стейк;банановый пирог;плов'
+# s = s.split(';')
+# s = ', '.join(s,)
+# print(s)
+
+
+# Задача 2. Самое длинное слово
+
+# s = 'я есть строка'
+# s = s.split(' ')
+# sl = max(s, key=len)
+# print(sl)
+
+
+# Задача 3. Файлы
+
+# name = 'example.docx'
+# sp = [chr(i) for i in range(30,65)]
+# if name[0] in sp:
+#     print('Ошибка: название начинается на один из специальных символов.')
+# elif not name.endswith(('.docx', '.txt'), len(name) - 5, len(name)):
+#     print('Ошибка: неверное расширение файла. Ожидалось .txt или .docx.')
+# else:
+#     print('Файл назван верно.')
+
+
+# Задача 4. Заглавные буквы
+
+# s = 'Кажется, я забыл выключить утюг.'
+# s = s.split(' ')
+# s = [i[0].upper()+i[1:] for i in s]
+# s = ' '.join(s)
+# print(s)
+
+
+# Задача 5. Пароль
+
+# while True:
+#     parol = list(input('введите пароль: '))
+#     if len([i for i in parol if i.isupper()]) > 0 and len([i for i in parol if i.isdigit()]) >= 3:
+#         print('Это надёжный пароль!')
+#         break
+
+
+# Задача 6. Сжатие
+
+# s = 'aaAAbbсaaaAAAa'
+# sn = ''
+# c = 1
+# for j in range(len(s)-1):
+#     print(j,' ',s[j],' ',s[j+1])
+#     if s[j] == s[j+1] and j < len(s):
+#         c += 1
+#     elif s[j] != s[j+1] and j+1 < len(s):
+#         sn += s[j] + str(c)
+#         c = 1
+#     if (s[j] == s[j+1] and j == len(s)-2) or (s[j] != s[j+1] and j == len(s)-2):
+#         sn += s[j+1] + str(c)
+#
+# print(sn)
+
+
+# Задача 7. IP-адрес 2
+
+# while True:
+#     er = 0
+#     ip = input('vvedite IP:  ')
+#     if ip.find(',') != -1:
+#         print('Адрес — это четыре числа, разделённые .очками.')
+#         er = 1
+#     else:
+#         ip = ip.split('.')
+#         if len(ip) != 4:
+#             print('Адрес — это 4етыре числа, разделённые точками.')
+#             er = 1
+#         for i in ip:
+#             try:
+#                 if int(i) > 255:
+#                     print(i, 'превышает', 255)
+#                     er = 1
+#             except ValueError:
+#                 print(f'{i} это не целое число.')
+#                 er = 1
+#     if er == 0:
+#         print('IP-адрес корректен.')
+#         break
+
+
+# Задача 8. Бегущая строка
+
+# def scroll(n,s,k):
+#     new_index = []
+#     k = n - k
+#     for i in range(n):
+#         if i + k < n:
+#             new_index.append(s[i+k])
+#         else:
+#             ks = (k + i)%n
+#             new_index.append(s[ks])
+#     return new_index
+#
+# s = list('abcde')
+# s2 = list('deabc')
+# print(s,s2)
+# n = len(s)
+# if len(s) == len(s2):
+#     for k in range(n):
+#         if (scroll(n,s,k)) == s2:
+#             print(f'Первая строка получается из второй со сдвигом {k+1}')
+# else:
+#     print('строки разной длины')
+
+
+# Задача 9. Сообщение
+
+# def shifr(s):
+#     a = ord('А')
+#     ya = ord('я')
+#     s1 = ''
+#     for i in s:
+#         prepinanie = ''
+#         for j in range((len(i) - 1), -1, -1):
+#             if ord(i[j]) in range(a, ya):
+#                 s1 += i[j]
+#             else:
+#                 prepinanie = i[j]
+#         s1 += prepinanie + ' '
+#     return s1
+#
+# s = 'Это задание очень! простое.'
+# s = s.split()
+# print(shifr(s))
+
+
+# Задача 10. Истина
+
+# s = 'vujgvmCfb tj ufscfu ouib z/vhm jdjuFyqm jt fscfuu uibo jdju/jnqm fTjnqm tj scfuuf ibou fy/dpnqm yDpnqmf jt cfuufs boui dbufe/dpnqmj uGmb tj fuufsc ouib oftufe/ bstfTq jt uufscf uibo otf/ef uzSfbebcjmj vout/dp djbmTqf dbtft (ubsfo djbmtqf hifopv up csfbl ifu t/svmf ipvhiBmu zqsbdujdbmju fbutc uz/qvsj Fsspst tipvme wfsof qbtt foumz/tjm omfttV mjdjumzfyq odfe/tjmf Jo fui dfgb pg hvjuz-bncj gvtfsf fui ubujpoufnq up ftt/hv Uifsf vmetip fc pof.. boe sbcmzqsfgf zpom pof pvt..pcwj xbz pu pe ju/ Bmuipvhi uibu bzx bzn puo cf wjpvtpc bu jstug ttvomf sfzpv( i/Evud xOp tj scfuuf ibou /ofwfs uipvhiBm fsofw jt fopgu cfuufs boui iu++sjh x/op gJ ifu nfoubujpojnqmf tj eibs pu mbjo-fyq tju( b bec /jefb Jg fui foubujpojnqmfn jt fbtz up bjo-fyqm ju znb cf b hppe jefb/ bnftqbdftO bsf pof ipoljoh sfbuh efbj .. fu(tm pe psfn gp tf"uip'
+#
+# def shifr(s,sdvig):
+#     LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+#     p = ''
+#     p1 = ''
+#     for i in s:
+#         if i in LETTERS:
+#             num = LETTERS.find(i)
+#             p += LETTERS[num - sdvig]
+#         else:
+#             p += i
+#     p = p.split()
+#     drop = 3
+#     for i in p:
+#         word = ''
+#         for j in range(len(i)):
+#             word += (i[j - drop % len(i)])
+#         if word.endswith('/'):
+#             drop += 1
+#         p1 += word + ' '
+#     p1 = p1.replace('/','\n')
+#     return p1
+#
+# sdvig = 1
+# print(shifr(s,sdvig))
+
+
+
+# 19.6 Практическая работа
+
+# Задача 1. Песни 2
+
+# violator_songs = {
+#     'World in My Eyes': 4.86,
+#     'Sweetest Perfection': 4.43,
+#     'Personal Jesus': 4.56,
+#     'Halo': 4.9,
+#     'Waiting for the Night': 6.07,
+#     'Enjoy the Silence': 4.20,
+#     'Policy of Truth': 4.76,
+#     'Blue Dress': 4.29,
+#     'Clean': 5.83
+#     }
+# n = 3
+# lenght = 0
+# pesni = ['Halo', 'Enjoy the Silence', 'Clean']
+# for j, i in enumerate(violator_songs.keys()):
+#     if i in pesni:
+#         lenght += violator_songs[i]
+#
+# print(lenght)
+
+
+# Задача 2. География
+
+# data = {}
+# s = 'Россия Москва Петербург Новгород'
+# country,*cities = s.split()
+# s = s.split()
+# print(s)
+# #data.update({country:cities})
+# for country,cities in data.items():
+#     gorod = input('введите город:  ')
+#     if gorod in cities:
+#         print(f'Город {gorod} расположен в стране {country}.')
+
+
+# Задача 3. Криптовалюта
+
+# data = {
+#     "address": "0x544444444444",
+#     "ETH": {
+#         "balance": 444,
+#         "totalIn": 444,
+#         "totalOut": 4
+#     },
+#     "count_txs": 2,
+#     "tokens": [
+#         {
+#             "fst_token_info": {
+#                 "address": "0x44444",
+#                 "name": "fdf",
+#                 "decimals": 0,
+#                 "symbol": "dsfdsf",
+#                 "total_supply": "3228562189",
+#                 "owner": "0x44444",
+#                 "last_updated": 1519022607901,
+#                 "issuances_count": 0,
+#                 "holders_count": 137528,
+#                 "price": False
+#             },
+#             "balance": 5000,
+#             "totalIn": 0,
+#             "total_out": 0
+#         },
+#         {
+#             "sec_token_info": {
+#                 "address": "0x44444",
+#                 "name": "ggg",
+#                 "decimals": "2",
+#                 "symbol": "fff",
+#                 "total_supply": "250000000000",
+#                 "owner": "0x44444",
+#                 "last_updated": 1520452201,
+#                 "issuances_count": 0,
+#                 "holders_count": 20707,
+#                 "price": False
+#             },
+#             "balance": 500,
+#             "totalIn": 0,
+#             "total_out": 0
+#         }
+#     ]
+# }
+#
+# def printing(data):
+#     print(data.keys())
+#     print(data.values())
+#
+# def changelvl1(data):
+#     ETH = data.get('ETH')
+#     ETH.update({'total_diff': 100})
+#     data.update({'ETH': ETH})
+#     return data
+#
+# def change_valuelvl2(data):
+#     tokens = data.get("tokens")
+#     first = tokens[0]
+#     fst = first.get('fst_token_info')
+#     fst.update({'name': 'doge'})
+#     first.update({"fst_token_info": fst})
+#     data.update({"tokens": first})
+#     return data
+#
+# def delete(data,totalout):
+#     tokens = data.get("tokens")
+#     total = tokens[0]
+#     print(total)
+#     totalout = total.pop(totalout)
+#     ETH = data.get('ETH')
+#     ETH.update({'total_out': totalout})
+#     data.update({'ETH': ETH})
+#     return data
+#
+# def change_keylvl2(data,k1,k2):
+#     tokens = data.get("tokens")
+#     second = tokens[1]
+#     sec = second.get('sec_token_info')
+#     value = sec[k1]
+#     sec.pop(k1)
+#     sec.update({k2: value})
+#     second.update({'sec_token_info' : sec})
+#     tokens[1] = second
+#     data.update({"tokens": tokens})
+#     return  data
+#
+# printing(data)
+# changelvl1(data)
+# change_valuelvl2(data)
+# delete(data,'total_out')
+# change_keylvl2(data,'price','total_price')
+
+
+# Задача 4. Товары
+
+# goods = {
+#     'Лампа': '12345',
+#     'Стол': '23456',
+#     'Диван': '34567',
+#     'Стул': '45678',
+# }
+#
+# store = {
+#     '12345': [
+#         {'quantity': 27, 'price': 42},
+#     ],
+#     '23456': [
+#         {'quantity': 22, 'price': 510},
+#         {'quantity': 32, 'price': 520},
+#     ],
+#     '34567': [
+#         {'quantity': 2, 'price': 1200},
+#         {'quantity': 1, 'price': 1150},
+#     ],
+#     '45678': [
+#         {'quantity': 50, 'price': 100},
+#         {'quantity': 12, 'price': 95},
+#         {'quantity': 43, 'price': 97},
+#     ],
+# }
+#
+#
+# for k in store:
+#     # print(k, '->', store[k])
+#     quant = 0
+#     cost = 0
+#     for k1 in store[k]:
+#         quant += k1['quantity']
+#         cost += k1['quantity']*k1['price']
+#     print(f'{list(goods.keys())[list(goods.values()).index(k)]}: quant = {quant}, total cost = {cost}')
+
+
+# Задача 5. Гистограмма частоты 2
+
+# orig = {' ': 2,'-' : 1,'З' : 1,'а' : 2,'д' : 1,'е' : 1,'и' : 1,'н' : 2,'о' : 3,'п' : 1,'с' : 2,'т' : 2,'ч' : 1,'ь' : 1}
+# keys = set(list(orig.values()))
+# invert = dict.fromkeys(keys, '')
+# print(invert)
+# for i in range(len(orig)):
+#     key = list(orig.values())[i]
+#     value = list(orig.keys())[i]
+#     invert[key] += value
+# for i in invert:
+#     invert[i] = list(invert[i])
+# print(invert)
+
+
+# Задача 6. Словарь синонимов
+
+# n = 1
+# dictionary_synonim = {}
+#
+# for i in range(n):
+#     pair = input('пара:  ').split()
+#     dictionary_synonim.update({pair[0]: pair[len(pair) - 1]})
+#     print(dictionary_synonim)
+#
+# while True:
+#     p = input('пара:  ')
+#     if p in list(dictionary_synonim.keys()):
+#         print(f'Синоним: {dictionary_synonim[p]}')
+#     elif p in list(dictionary_synonim.values()):
+#         print(f'Синоним: {list(dictionary_synonim.keys())[list(dictionary_synonim.values()).index(p)]}')
+#     else:
+#         print('такого синонима нет')
+#         break
+
+
+# Задача 7. Пицца
+
+# n = 3
+# dict_orders = {}
+# for i in range(n):
+#     order = input('заказ:  ').split()
+#     name = order[0]
+#     choice = order[1]
+#     amount = int(order[2])
+#     dictorder = dict.fromkeys({choice},amount)
+#     if name not in list(dict_orders.keys()):
+#         dict_orders.update({name:dictorder})
+#     elif name in list(dict_orders.keys()) and choice not in list(dict_orders[name].keys()):
+#         dict_orders[name].update(dictorder)
+#     elif name in list(dict_orders.keys()) and choice in list(dict_orders[name].keys()):
+#         amount += dict_orders[name][choice]
+#         dictorder = dict.fromkeys({choice}, amount)
+#         dict_orders[name].update(dictorder)
+#     print(dict_orders)
+#
+# dict_ordersss = dict(sorted(dict_orders.items(), key=lambda x: x[0]))
+#
+# print(dict_ordersss)
+
+
+# Задача 8. Угадай число
+
+# n = int(input('введите максимальное число:  '))
+# z = int(input('загадайте число число:  '))
+# tray = []
+#
+# while True:
+#     ask = input('сдаешься? ')
+#     if ask == 'Помогите!':
+#         break
+#     while len(tray) < random.randint(0,n//2):
+#         new = random.randint(1, n)
+#         if new not in tray:
+#             tray.append(new)
+#     tray = list(sorted(tray))
+#     print(f'Нужное число есть среди вот этих чисел: ',  tray)
+#     if z in tray:
+#         print('да')
+#         r = random.randint(0, len(tray)-1)
+#         tr = tray[r]
+#         tray.clear()
+#         tray.append(tr)
+#     else:
+#         print('нет')
+#         tray = [i for i in range(n) if i not in tray]
+#
+# print(f'Артём мог загадать следующие числа: {random.randint(1, z-1)} {z} {random.randint(z+1, n)}')
+
+
+# Задача 9. Родословная
+
+# def prokidka(proroditel,lvl):
+#     lvl += 1
+#     for j in drevo[proroditel]:
+#         drevo_grade[j] += lvl
+#         if j in list_roditeli:
+#             prokidka(j,lvl)
+#
+#
+# n = 8
+# drevo = {}
+# drevo_grade = {}
+# list_potomki = []
+# list_roditeli = []
+# lvl = 0
+# with open('C:\X\GitHub\Basic_courses/rodoslov.txt') as f:
+#     lines = f.readlines()
+#
+# for i in lines:
+#     pair = i.split()
+#     rod = pair[1]
+#     pot = pair[0]
+#     drevo_grade.update({rod : 0})
+#     drevo_grade.update({pot : 0})
+#     list_potomki.append(pot)
+#     list_roditeli.append(rod)
+#     if rod not in list(drevo.keys()):
+#         drevo.update({rod:[pot]})
+#     else:
+#         drevo[rod].append(pot)
+#     # print(drevo)
+# print(drevo_grade)
+#
+# for i in list(drevo_grade.keys()):
+#     if i not in list_potomki:
+#         proroditel = i
+#
+# prokidka(proroditel,lvl)
+# drevo_gradesort = dict(sorted(drevo_grade.items(), key=lambda x: x[0]))
+# print(drevo_gradesort)
+
+
+# Задача 10. Снова палиндром
+
+# import itertools
+#
+# def palindrom_check(chec):
+#     if len(chec) % 2 == 0:
+#         d = 0
+#     else:
+#         d = 1
+#     for num in range(len(chec)//2 + d):
+#         if chec[num] != chec[len(chec)-num-1]:
+#             r = 'не палиндром'
+#             break
+#         else:
+#             r = 'палиндром'
+#     return r
+#
+# def iterations(s):
+#     s = list(s)
+#     r = 'не палиндром'
+#     for i in itertools.permutations(s):
+#         combo = "".join(i)
+#         if palindrom_check(combo) == 'палиндром':
+#             r = 'палиндром'
+#             break
+#     return  r
+#
+# s = 'aabbc'
+# print(iterations(s))
+
+
