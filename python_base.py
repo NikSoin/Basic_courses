@@ -2273,3 +2273,241 @@ import  sys
 # print(iterations(s))
 
 
+
+# 20.8 Практическая работа
+
+# Задача 1. Ревью кода
+
+students = {
+    1: {
+        'name': 'Bob',
+        'surname': 'Vazovski',
+        'age': 23,
+        'interests': ['biology, swimming']
+    },
+    2: {
+        'name': 'Rob',
+        'surname': 'Stepanov',
+        'age': 24,
+        'interests': ['math', 'computer games', 'running']
+    },
+    3: {
+        'name': 'Alexander',
+        'surname': 'Krug',
+        'age': 22,
+        'interests': ['languages', 'health food']
+    }
+}
+
+# def f(dict):
+#     lst = []
+#     string = ''
+#     for i in dict:
+#         lst += (dict[i]['interests'])
+#         string += dict[i]['surname']
+#     return lst, len(string)
+#
+#
+# pairs = [(i, students[i]['age']) for i in students]
+# print(pairs)
+#
+#
+# my_lst, l = f(students)[0], f(students)[1]
+# print(my_lst, l)
+
+
+# Задача 2. Универсальная программа 2
+
+# def crypto(iter):
+#     return [i for j, i in enumerate(iter) if prost(j) is True]
+#
+# def prost(j):
+#     if j in [0,1]:
+#         return True
+#     d = 2
+#     while j%d != 0:
+#         d += 1
+#     return d == j
+#
+#
+# print(crypto('О Дивный Новый мир!'))
+
+
+# Задача 3. Функция
+
+# def slicer(cort,n):
+#     if cort.count(n) == 0:
+#         cort = ()
+#     elif cort.count(n) >= 2:
+#         cort = cort[cort.index(n):cort.index(n,cort.index(n)+1,len(cort))]
+#     else:
+#         cort = cort[cort.index(n):]
+#     return cort
+#
+# print(slicer((1, 2, 3, 4, 5, 6, 7, 8, 2, 2, 9, 10), 3))
+
+
+# Задача 4. Игроки
+
+# players = {
+#
+#     ("Ivan", "Volkin"): (10, 5, 13),
+#
+#     ("Bob", "Robbin"): (7, 5, 14),
+#
+#     ("Rob", "Bobbin"): (12, 8, 2)
+#
+# }
+#
+# p = [(list(players.keys())[i]+list(players.values())[i]) for i in range(len(players))]
+# print(p)
+
+
+# Задача 5. Одна семья
+
+# family = {
+#     ('Сидоров', 'Никита') : 32,
+#     ('Сидорова', 'Алина') : 34,
+#     ('Сидоров', 'Павел') : 10,
+#     ('Соин', 'Никита') : 23,
+#     ('Сурова', 'Ксения') : 24
+# }
+#
+# p = 'суров'
+# p = p.lower()
+# for j,i in enumerate(list(family.keys())):
+#     if i[0].lower() == p or i[0][:len(i[0])-1].lower() == p or i[0].lower() == p[:len(p)-1]:
+#         print(i,family[i])
+
+
+# Задача 6. По парам
+
+# p = [random.randint(0,10) for i in range(10)]
+# n = []
+# i = 0
+# for num in range(len(p)//2):
+#     n.append((p[i],p[i+1]))
+#     i = i+1
+# print(n)
+
+
+# Задача 7. Функция сортировки
+
+# def tpl_sort(*args):
+#     for i in args:
+#         if i < 0:
+#             return args
+#     a = tuple(set(args))
+#     return a
+#
+# print(tpl_sort(6, 3, -1, 8, 4, 10, 5))
+
+
+# Задача 8. Контакты 3
+
+# kontacts = {('Иван', 'Сидоров'): 888,('Алиса', 'Петрова'): 999}
+#
+# def one():
+#     name = input('имя: ')
+#     surname = input('фамилия?  ')
+#     number = int(input('номер?  '))
+#     kontacts.update({(name,surname):number})
+#     return kontacts
+#
+# def two():
+#     p = input('введите нужную фамилию:  ').lower()
+#     for j,i in enumerate(list(kontacts.keys())):
+#         if i[1].lower() == p or i[1][:len(i[1])-1].lower() == p or i[1].lower() == p[:len(p)-1]:
+#             print(i,kontacts[i])
+#
+#
+# while True:
+#     d = input('Введите номер действия: \n  1. Добавить контакт \n  2. Найти человека \n:')
+#     if d == '1':
+#         print(one())
+#     if d == '2':
+#         two()
+
+
+# Задача 9. Протокол соревнований
+
+# def zipi(o,t):
+#     return [(o[i], t[i]) for i in range(len(one))]
+#
+# one = 'abcd'
+# two =  (10, 20, 30, 40)
+#
+# print(zipi(one,two))
+
+
+
+# 21.6 Практическая работа
+
+# Задача 1. Challenge 2
+
+# def recurs(n,num):
+#     print(n)
+#     if n < num:
+#         n += 1
+#         recurs(n,num)
+#
+# n = 0
+# num = 10
+# recurs(n,num)
+
+
+# Задача 2. Свой zip 2
+
+# def zipi(o,t):
+#     return [(o[i], t[i]) for i in range(len(one))]
+#
+# one = 'abcd'
+# two =  (10, 20, 30, 40)
+#
+# print(zipi(one,two))
+
+
+# Задача 3. Ряд Фибоначчи
+
+# def fibonacci(one,two,n,p):
+#     n += 1
+#     if n < p:
+#         one, two = two, one + two
+#         fibonacci(one,two,n,p)
+#     if n == p:
+#         print(two)
+#
+#
+# one = 0
+# two = 1
+# n = 0
+# p = 10
+# fibonacci(one,two,n,p)
+
+
+# Задача 4. Поиск элемента 2
+
+# site = {
+#     'html': {
+#         'head': {
+#             'title': 'Мой сайт'
+#         },
+#         'body': {
+#             'h2': 'Здесь будет мой заголовок',
+#             'div': 'Тут, наверное, какой-то блок',
+#             'p': 'А вот здесь новый абзац'
+#         }
+#     }
+# }
+#
+# def deeper(a,key):
+#     for k in list(a.keys()):
+#         if k == key:
+#             print('конец: ', a[k])
+#             break
+#         if type(a[k]) == dict:
+#             deeper(a[k],key)
+#
+# a = site
+# key = 'title'
+# deeper(a,key)
