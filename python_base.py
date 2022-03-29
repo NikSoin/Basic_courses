@@ -2511,3 +2511,270 @@ students = {
 # a = site
 # key = 'title'
 # deeper(a,key)
+
+
+# Задача 5. Ускоряем работу функции
+
+# def calculating_math_func(data):
+#     result = 1
+#     if data not in list(factorial.keys()):
+#         for index in range(1, data + 1):
+#             result *= index
+#         factorial.update({data:result})
+#     else:
+#         result = factorial[data]
+#     result /= data ** 3
+#     result = result ** 10
+#     return result
+#
+# factorial = {}
+
+
+# Задача 6. Глубокое копирование
+
+
+# def sytic(name):
+#     site = {
+#         'html': {
+#             'head': {
+#                 'title': f'Куплю/продам {name} недорого'
+#             },
+#             'body': {
+#                 'h2': f'У нас самая низкая цена на {name}',
+#                 'div': 'Купить',
+#                 'p': 'Продать'
+#             }
+#         }
+#     }
+#     return site
+#
+# n = int(input('сколько сайтов нужно?  '))
+# for i in range(n):
+#     name = input('введите название первого сайта:  ')
+#     print(sytic(name))
+
+
+# Задача 7. Продвинутая функция sum
+
+# def sum2(lst,s = 0):
+#     for i in lst:
+#         try:
+#             s += i
+#         except TypeError:
+#             s = sum2(i, s)
+#     return s
+#
+# print(sum2([[1, [6], [3]], [[[4]], 5]]))
+
+
+# Задача 8. Список списков 2
+
+# def nice(lst,s = []):
+#     for i in lst:
+#         print(i)
+#         if type(i) != list:
+#             s.append(i)
+#         else:
+#             d = nice(i, s)
+#             s.append(d)
+#         print(s)
+#     for j, e in enumerate(s):
+#         if type(e) == list:
+#             s.pop(j)
+#     return s
+#
+# print(nice([[1, 2, [3, 4], [[5, 6, 7], [[8, 9, 10]], [[11, 12, 13], [14, 15], [16, 17, 18]]]]]))
+
+
+
+# 22.6 Практическая работа
+
+# Задача 1. Сумма чисел 2
+
+# f = open('text.txt')
+# s = 0
+# for line in f:
+#     l = line.split()
+#     s += int(l[0])
+# d = open('answer.txt', 'a')
+# d.write(str(s))
+# print('Содержимое файла answer.txt \n', open('answer.txt').read())
+
+
+# Задача 2. Дзен Пайтона
+
+# for i in reversed(open('text.txt').read().split('\n')):
+#     print(i)
+
+
+# Задача 3. Дзен Пайтона 2
+# s = 0
+# sl = 0
+# bukva = 0
+# redkiy_slovar = {}
+# for i in reversed(open('text.txt').read().split('\n')):
+#     s += 1
+#     str = i.split()
+#     for j in str:
+#         sl += 1
+#         slovo = list(j)
+#         for b in slovo:
+#             bukva += 1
+#             if b not in redkiy_slovar:
+#                 redkiy_slovar.update({b:0})
+#             else:
+#                 redkiy_slovar[b] += 1
+# most = max(list(redkiy_slovar.values()))
+# print(list(redkiy_slovar.items())[list(redkiy_slovar.values()).index(most)])
+# print(s,sl,bukva)
+
+import os
+
+# Задача 4. Файлы и папки
+
+# def rec_file(path, f = 0, cat = 0, size = 0):
+#     pa, dirs, files = next(os.walk(path))
+#     for i in files:
+#         f += 1
+#         fp = os.path.join(path, i)
+#         size += os.path.getsize(fp)
+#     for j in dirs:
+#         dp = os.path.join(path, j)
+#         cat += 1
+#         f,cat,size = rec_file(dp,f,cat,size)
+#     return f,cat,size
+#
+# home = 'C:\X\GitHub'
+# f,cat,size = rec_file('C:\X\GitHub')
+# print(f'Размер каталога (в Кб): {f}\nКоличество подкаталогов: {cat}\nКоличество файлов: {size}')
+
+
+# Задача 5. Сохранение
+
+# str = 'testiruyem' # input('введите строку:  ')
+# path = 'C: X GitHub'.split()
+# p = ''
+# for i in path:
+#     p += os.path.join(i) + "\\"
+# file_name = 'my_document' + '.txt'
+# f = open(os.path.join(p,file_name),'w')
+# f.write(str)
+# f = open(os.path.join(p,file_name))
+# print(f.read())
+
+
+# Задача 6. Паранойя
+
+# def shifr(line, sdvig, p = '', LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+#     for i in line:
+#         if i in LETTERS:
+#             num = LETTERS.find(i)
+#             if num + sdvig <= len(LETTERS):
+#                 p += LETTERS[num + sdvig]
+#             else:
+#                 p += LETTERS[num + sdvig - len(LETTERS)]
+#         else:
+#             p += i
+#     return p
+#
+# f = open('text.txt')
+# r = open('cipher_text.txt','w')
+# sdvig = 1
+# for i in f:
+#     newline = shifr(i, sdvig)
+#     sdvig += 1
+#     r.write(newline)
+# r.close()
+# r = open('cipher_text.txt')
+# print(r.read())
+
+
+# Задача 7. Турнир
+
+# edge = int(open('first_tour.txt').read()[0:2])
+# f = open('first_tour.txt')
+# w = open('second_tour.txt', 'w')
+# for i in f:
+#     line = i.split()
+#     if len(line) == 3:
+#         if int(line[2]) > edge:
+#             w.write(f'{line[1][0]}. {line[0]} {line[2]} \n')
+#
+# w = open('second_tour.txt','r')
+# print(w.read())
+
+
+# Задача 8. Частотный анализ
+
+# def unicue(text,unicue_dict = {}, part_dict = {}, LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+#     f = open(text).read()
+#     for i in f:
+#         if i in LETTERS:
+#             if i.lower() not in unicue_dict.keys():
+#                 unicue_dict.update({i.lower():1})
+#             else:
+#                 unicue_dict[i] += 1
+#     s = sum(unicue_dict.values())
+#     print(s)
+#     for j in range(len(unicue_dict)):
+#         part_dict.update({list(unicue_dict.keys())[j]:round(list(unicue_dict.values())[j]/s, 3)})
+#     part_dict_s = sorted(part_dict.items(), key=lambda x:(-x[1], x[0]))
+#     return part_dict_s
+#
+# name = 'text.txt'
+# print(unicue(name))
+
+
+
+# 23.6 Практическая работа
+
+# Задача 1. Имена 2
+
+# s = 0
+# with open('people.txt','r') as p:
+#     for j,i in enumerate(p):
+#         try:
+#             s += len(i)
+#             if len(i) < 3:
+#                 raise TabError
+#         except TabError:
+#             print(f'длина строки №{j} меньше 3')
+# print(s)
+
+
+# Задача 2. Координаты
+
+import random
+
+#
+#
+# def f(x, y):
+#     x += random.randint(0, 10)
+#     y += random.randint(0, 5)
+#     return x / y
+#
+#
+# def f2(x, y):
+#     x -= random.randint(0, 10)
+#     y -= random.randint(0, 5)
+#     return y / x
+#
+#
+#
+# file = open('coordinates.txt', 'r')
+# for line in file:
+#     nums_list = line.split()
+#     res1 = f(int(nums_list[0]), int(nums_list[1]))
+#     res2 = f2(int(nums_list[0]), int(nums_list[1]))
+#
+#     number = random.randint(0, 100)
+#     file_2 = open('result.txt', 'w')
+#     my_list = sorted([res1, res2, number])
+#     file_2.write(my_list)
+#
+# file.close()
+# file_2.close()
+
+
+# Задача 3. Счастливое число
+
