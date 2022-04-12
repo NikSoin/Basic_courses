@@ -3268,7 +3268,7 @@ import random
 #         x1 = m[i][0]
 #         x2 = m[i+1][0]
 #         d = abs(x1 - x2)/2 + min(x1,x2)
-#         print(f'проверяем: d={d},x1={x1},x2={x2} = c={c}')
+#         print(f'проверяем: d={d},при x1={x1},x2={x2}. =? c={c}')
 #         if d != c:  # уточнить проверку расстояния
 #             print(f'ошибка расстояний: d={d},x1={x1},x2={x2} != c={c}')
 #             return False
@@ -3283,8 +3283,140 @@ import random
 #     print('множество нельзя разделить вертикалью симметрично')
 
 
-
-
-
 # Задача 7. Совместное проживание
 
+# class Man:
+#     def __init__(self):
+#         self.name = 'Artyom'
+#         self.nohungry = 50
+#         self.home = Home()
+#
+#     def eat(self):
+#         self.nohungry += 10
+#         if man.home.food > 0:
+#             man.home.food -= 1
+#         else:
+#             man.home.food -= 1
+#             man.home.no_food = True
+#
+#     def work(self):
+#         self.nohungry -= 10
+#         man.home.money += 10
+#
+#     def play(self):
+#         self.nohungry -= 5
+#
+#     def shop(self):
+#         man.home.food += 10
+#         man.home.money -= 10
+#
+#     def live(self,d=0):
+#         while True:
+#             k = doit()
+#             if man.nohungry < 20:
+#                 man.eat()
+#             elif man.home.food < 10:
+#                 man.shop()
+#             elif man.home.money < 50:
+#                 man.work()
+#             elif k == 1:
+#                 man.work()
+#             elif k == 2:
+#                 man.eat()
+#             else:
+#                 man.play()
+#                 print('поиграл')
+#             d += 1
+#             if man.home.no_food is True or man.nohungry < 0 or d > 365:
+#                 break
+#             print(f'еда = {man.home.food}',d)
+#         return d
+#
+#
+# class Home:
+#     def __init__(self):
+#         self.food = 50
+#         self.money = 0
+#         self.no_food = False
+#
+#
+# def doit():
+#     return random.randint(1, 6)
+#
+#
+# man = Man()
+# days = man.live()
+#
+# print(f'{man.name} прожил {days} дней и не умер, еды осталось {man.home.food}, денег осталось {man.home.money}')
+
+
+# Задача 8. Блек-джек
+
+
+# Задача 9. Крестики-нолики
+
+class Cell:
+    def __init__(self,n,m):
+        self.number = int(str(m) + str(n))
+        self.setn = '| |'
+        self.k = str(self.number) + str(self.setn)
+
+
+# class Board:
+#     def __init__(self):
+#         self.field = [[Cell(i,j) for i in range(1,4)] for j in range(1,4)]
+#
+#     def pr_info(self):
+#         for i in self.field:
+#             for j in i:
+#                 print(j.setn,end=' ')
+#             print('\n')
+#
+#     def printing(self,znak,nomer):
+#         for i in self.field:
+#             for j in i:
+#                 if j.number == nomer:
+#                     j.setn = '|' + str(znak) + '|'
+#             print('\n')
+#
+#     def check_win(self):
+#         for i in self.field:
+#             if (i[0].setn == i[1].setn and i[1].setn == i[2].setn) and i[0].setn != '| |':
+#                 print(f'победил {i[0].setn}')
+#                 return True
+#         for i in range(3):
+#             if (self.field[0][i].setn == self.field[1][i].setn == self.field[2][i].setn) and self.field[2][i].setn != '| |':
+#                 print(f'победил {self.field[1][i].setn}')
+#                 return True
+#         if (self.field[0][0].setn == self.field[1][1].setn == self.field[2][2].setn) and self.field[2][2].setn != '| |':
+#             print(f'победил {self.field[1][1].setn}')
+#             return True
+#         elif (self.field[2][0].setn == self.field[1][1].setn == self.field[0][2].setn) and self.field[0][2].setn != '| |':
+#             print(f'победил {self.field[1][1].setn}')
+#             return True
+#         return False
+#
+#
+# class Player:
+#     def __init__(self,name,znak):
+#         self.name = name
+#         self.znak = znak
+#
+# def turn(b,p):
+#     number = int(input('введите номер клетки: '))
+#     b.printing(p.znak, number)
+#     b.pr_info()
+#     if b.check_win() is True:
+#         print('end')
+#         return True
+#     return False
+#
+# p1 = Player('Tom','X')
+# p2 = Player('Mike','O')
+# b = Board()
+#
+# while True:
+#     if turn(b,p1) is True:
+#         break
+#     if turn(b,p2) is True:
+#         break
