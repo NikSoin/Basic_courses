@@ -2778,3 +2778,513 @@ import random
 
 # Задача 3. Счастливое число
 
+# def filesum(name,s = 0):
+#     f = open('out_file.txt', 'r')
+#     s = int(f.read())
+#     print(s)
+#     return s
+#
+#
+# while True:
+#     r = random.randint(0,13)
+#     print(r,'= r')
+#     if r == 4:
+#         break
+#     d = filesum('out_file.txt')
+#     if d < 777:
+#         file = open('out_file.txt', 'w')
+#         new = int(input('введите новое число:  ')) + d
+#         file.write(str(new))
+#         file.close()
+#     else:
+#         break
+#
+# file = open('out_file.txt', 'w')
+# file.write('0')
+# file.close()
+
+
+# Задача 4. Регистрация
+
+# def letters(name, let = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'):
+#     for i in name:
+#         if i not in let:
+#             return 0
+#     return 1
+#
+# def emai(mail):
+#     if '@' not in mail or '.' not in mail:
+#         return False
+#     return True
+#
+# file = open('out_file.txt', 'r')
+# filefalse = open('filefalse', 'w')
+# filetrue = open('filetrue', 'w')
+#
+# for i in file:
+#     try:
+#         if len(i.split()) != 3:
+#             raise IndexError
+#         elif letters(i.split()[0]) == 0:
+#             raise NameError
+#         elif emai(list(i.split()[1])) is False:
+#             raise SyntaxError
+#         elif int(i.split()[2]) in range(10,100):
+#             raise ValueError
+#         else:
+#             filetrue.write(i)
+#     except IndexError:
+#         filefalse.write(f'{i[:-1]} НЕ присутствуют все три поля: IndexError.\n')
+#     except NameError:
+#         filefalse.write(f'{i[:-1]} Поле имени содержит НЕ только буквы: NameError.\n')
+#     except SyntaxError:
+#         filefalse.write(f'{i[:-1]} Поле «Имейл» НЕ содержит @ и .(точку): SyntaxError.\n')
+#     except ValueError:
+#         filefalse.write(f'{i[:-1]} Поле «Возраст» НЕ является числом от 10 до 99: ValueError.\n')
+
+
+# Задача 5. Текстовый калькулятор
+
+# def calc(name, s = 0):
+#     for i in open(name, 'r'):
+#         s += calculation(i.split())
+#     return s
+#
+#
+# def calculation(str,r = 0):
+#     try:
+#         if str[1] == '+':
+#             r = int(str[0]) + int(str[2])
+#         elif str[1] == '*':
+#             r = int(str[0]) * int(str[2])
+#         elif str[1] == '/':
+#             r = int(str[0]) / int(str[2])
+#         elif str[1] == '-':
+#             r = int(str[0]) - int(str[2])
+#         else:
+#             raise ValueError
+#     except ValueError:
+#         st = ' '.join(str)
+#         d = input(f'Программа пытается выполнить {st}. Хотите исправить ошибку?\n')
+#         if d == 'да':
+#             z = input('Введите новую строку: ')
+#             r = calculation(z.split())
+#     return r
+#
+#
+# print(f'summa = {calc("calc.txt")}')
+
+
+# 24.6 Практическая работа
+
+# class Family:
+#     surname = 'Common'
+#     money = 10000
+#     have_home = False
+#
+#     def info(self):
+#         print(
+#             f'Name {self.surname}\nmoney {self.money}\nHome {self.have_home}'
+#         )
+#
+#     def earn(self, amount):
+#         self.money += amount
+#         print(f'Earned {amount}, current {self.money}')
+#
+#     def by(self,house_pricce,discount = 0):
+#         house_pricce -= house_pricce*discount/100
+#         if self.money >= house_pricce:
+#             self.money -= house_pricce
+#             self.have_home = True
+#             print(f'Congrats! Money: {self.money}')
+#         else:
+#             print('No')
+#
+# my_famili = Family()
+# my_famili.info()
+# my_famili.by(11100,9)
+
+
+# class Employee:
+#
+#     def __init__(self,name,salary):
+#         self.name = name
+#         self.salary = salary
+#
+#     def print_info(self):
+#         print(
+#             f'Name {self.name}, salary {self.salary}'
+#         )
+#
+# emp1 = Employee('obo',50)
+# emp1.print_info()
+
+
+# class Potato:
+#     states = {0:'ничего', 1:'рост', 2:'клубень'}
+#
+#     def __init__(self,index):
+#         self.index = index
+#         self.state = 0
+#
+#     def grow(self):
+#         if self.state < 2:
+#             self.state += 1
+#         self.print_state()
+#
+#     def print_state(self):
+#         print(
+#             f'Pot {self.index} is now {Potato.states[self.state]}'
+#         )
+#
+# class Potato_garden:
+#     def __init__(self,count):
+#         self.potatoes = [Potato(i) for i in range(1,count + 1)]
+#
+#     def grow_all(self):
+#         print('it grows')
+#         for i in self.potatoes:
+#             i.grow()
+#
+#     def all_growed_up(self):
+#         for i in self.potatoes:
+#             if i.state != 2:
+#                 print('не созрела')
+#                 break
+#         else:
+#             print('все созрело')
+
+# from garden import *
+# garden = Potato_garden(6)
+# garden.all_growed_up()
+# for i in range(2):
+#     garden.grow_all()
+#     garden.all_growed_up()
+
+
+# Задача 1. Драка
+
+# class Warrior:
+#
+#     def __init__(self):
+#         self.hp = 100
+#         self.name = 'Voin'
+#
+#     def get_hp(self):
+#         return self.hp
+#
+#     def GetName(self):
+#         for i, j in globals().items():
+#             if j is self:
+#                 return i
+#
+#     def get_hit(self):
+#         self.hp -= 20
+#         print(f'{self.GetName()} получил удар и потерял 20 здоровья, теперь его хп = {self.hp}')
+#
+# war1 = Warrior()
+# war2 = Warrior()
+#
+# while war2.get_hp() > 0 and war1.get_hp() > 0:
+#     r = random.randint(1,2)
+#     if r == 1:
+#         war1.get_hit()
+#     else:
+#         war2.get_hit()
+
+
+# Задача 2. Студенты
+
+# class Student:
+#
+#     def __init__(self,name,group,grades):
+#         self.name = name
+#         self.group = group
+#         self.grades = grades
+#
+#     def print_info(self):
+#         print('{} {} {}'.format(self.name,self.group,self.grades),end=', ')
+#
+#
+# g = [Student('Bob3', '2a', 0),
+# Student('Aob3', '2a', 1),
+# Student('Bob1', '2a', 2),
+# Student('Dob1', '2a', 3),
+# Student('Bob8', '2a', 4)]
+#
+# print(g)
+# g.sort(key=lambda x : x.name)
+# for i in g:
+#     i.print_info()
+
+
+# Задача 3. Круг
+
+# class Round:
+#
+#     def __init__(self, r, x0 = 0, y0 = 0):
+#         self.x0 = x0
+#         self.y0 = y0
+#         self.r = r
+#
+#     def square(self):
+#         return math.pi*self.r**2
+#
+#     def lenght(self):
+#         return 2*math.pi*self.r
+#
+#     def grow(self):
+#         self.r = 2*self.r
+#
+#     def intersection(self,x1,y1,r2):
+#         if abs(x1) + r2 >= self.r + self.x0 or abs(y1) + r2 >= self.r + self.y0:
+#             return True
+#         else:
+#             return False
+#
+# krug = Round(3)
+# print(krug.lenght())
+# print(krug.square())
+# print(krug.intersection(0.5,0.5,2.5))
+
+
+# Задача 4. Отцы, матери и дети
+
+# class Parent:
+#
+#     def __init__(self,name,old):
+#         self.name = name
+#         self.old = old
+#         self.children = [Children('Mike',random.randint(1,self.old - 16)) for i in range(4)]
+#
+#     def child_info(self):
+#         for i in self.children:
+#             print('{} {} {} {}'.format(i.name,i.cold,i.easy,i.ishungry))
+#
+#     def make_easy(self,cname):
+#         for i in self.children:
+#             if i.name == cname:
+#                 i.easy = True
+#
+#     def feed(self,cname):
+#         for i in self.children:
+#             if i.name == cname:
+#                 i.ishungry = False
+#
+# class Children:
+#
+#     def __init__(self,name,cold):
+#         self.name = name
+#         self.cold = cold
+#         self.easy = False
+#         self.ishungry = True
+#
+# dad = Parent('Matt',28)
+# dad.child_info()
+# dad.make_easy('Mike')
+# dad.feed('Mike')
+# dad.child_info()
+
+
+# Задача 5. Весёлая ферма 2
+
+# class Potato:
+#
+#     states = {0:'ничего', 1:'росток', 2:'клубень'}
+#
+#     def __init__(self,index):
+#         self.index = index
+#         self.state = 0
+#         self.sornyak = True
+#
+#     def grow(self):
+#         if self.state < 2:
+#             self.state += 1
+#         # self.print_state()
+#
+#     def print_state(self):
+#         print(
+#             f'Potato {self.index} is now {Potato.states[self.state]}. Sornyak {self.sornyak}'
+#         )
+#
+#     def propolka(self):
+#         self.sornyak = False
+#
+# class Potato_garden:
+#
+#     def __init__(self,count):
+#         self.potatoes = [Potato(i) for i in range(1,count + 1)]
+#
+#     def grow_all(self):
+#         print('it grows')
+#         for i in self.potatoes:
+#             i.grow()
+#
+#     def print_info_potato_garden(self):
+#         for i in self.potatoes:
+#             i.print_state()
+#
+#     def all_growed_up(self):
+#         for i in self.potatoes:
+#             if i.state != 2:
+#                 print('не созрела')
+#                 break
+#         else:
+#             print('все созрело')
+#
+#     def polka(self):
+#         for i in self.potatoes:
+#             i.propolka()
+#
+#     def pick_up(self, s = 0):
+#         for i in self.potatoes:
+#             s+=1
+#         return s
+#
+# class Gardener:
+#
+#     def __init__(self,name):
+#         self.name = name
+#         self.gryadka = Potato_garden(5)
+#
+#     def popropoloty(self):
+#         self.gryadka.polka()
+#
+#     def collecting(self):
+#         print(f'Собрано {self.gryadka.pick_up()} картошек')
+#
+# s = Gardener('Mike')
+# s.gryadka.print_info_potato_garden()
+# s.popropoloty()
+# s.gryadka.grow_all()
+# s.gryadka.grow_all()
+# s.gryadka.print_info_potato_garden()
+# s.collecting()
+
+
+# Задача 6. Магия
+
+# class Water:
+#     def __init__(self):
+#         self.name = 'water'
+#
+#     def __add__(self, other):
+#         if other.name == 'air':
+#             return Shtorm()
+#         elif other.name == 'fire':
+#             return Par()
+#         elif other.name == 'earth':
+#             return Dirt()
+#
+#
+# class Fire:
+#     def __init__(self):
+#         self.name = 'fire'
+#
+#     def __add__(self, other):
+#         if other.name == 'earth':
+#             return Magma()
+#         elif other.name == 'water':
+#             return Par()
+#         elif other.name == 'air':
+#             return Lightning()
+#
+#
+# class Earth:
+#     def __init__(self):
+#         self.name = 'earth'
+#
+#     def __add__(self, other):
+#         if other.name == 'fire':
+#             return Magma()
+#         elif other.name == 'water':
+#             return Dirt()
+#         elif other.name == 'air':
+#             return Pyl()
+#
+#
+# class Air:
+#     def __init__(self):
+#         self.name = 'air'
+#
+#     def __add__(self, other):
+#         if other.name == 'fire':
+#             return Lightning()
+#         elif other.name == 'water':
+#             return Shtorm()
+#         elif other.name == 'earth':
+#             return Pyl()
+#
+#
+# class Shtorm:
+#     def __init__(self):
+#         self.name = 'shtorm'
+#
+#
+# class Par:
+#     def __init__(self):
+#         self.name = 'par'
+#
+#
+# class Dirt:
+#     def __init__(self):
+#         self.name = 'dirt'
+#
+#
+# class Lightning:
+#     def __init__(self):
+#         self.name = 'lightning'
+#
+#
+# class Pyl:
+#     def __init__(self):
+#         self.name = 'pyl'
+#
+#
+# class Magma:
+#     def __init__(self):
+#         self.name = 'magma'
+#
+#
+# a, b = Water(), Air()
+# c = a + b
+# print(c.name)
+
+
+
+# Задача на симметричное деление множества точек по вертикальной оси - алгоритмы
+
+# def pair_check(m):
+#     for i in range(0, len(m), 2):
+#         if m[i + 1][1] != m[i][1]:
+#             print('ошибка пар')
+#             return False
+#     return True
+#
+# def range_check(m):
+#     c = abs(m[0][0] - m[1][0])/2 + min(m[0][0],m[1][0])
+#     print(c)
+#     for i in range(2, len(m), 2):
+#         x1 = m[i][0]
+#         x2 = m[i+1][0]
+#         d = abs(x1 - x2)/2 + min(x1,x2)
+#         print(f'проверяем: d={d},x1={x1},x2={x2} = c={c}')
+#         if d != c:  # уточнить проверку расстояния
+#             print(f'ошибка расстояний: d={d},x1={x1},x2={x2} != c={c}')
+#             return False
+#     return True
+#
+# m = [[1,0],[8,0],[6,1],[3,1],[2,3],[7,3]]
+# m = sorted(m,key=lambda x : -x[1])
+# print(m)
+# if pair_check(m) == True and range_check(m) == True:
+#     print('множество можно разделить вертикалью симметрично')
+# else:
+#     print('множество нельзя разделить вертикалью симметрично')
+
+
+
+
+
+# Задача 7. Совместное проживание
+
