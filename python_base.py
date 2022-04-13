@@ -3165,16 +3165,18 @@ import random
 # Задача 6. Магия
 
 # class Water:
-#     def __init__(self):
-#         self.name = 'water'
+#     def __str__(self):
+#         return 'water'
 #
 #     def __add__(self, other):
-#         if other.name == 'air':
+#         if isinstance(other,Air):
 #             return Shtorm()
-#         elif other.name == 'fire':
+#         elif isinstance(other,Fire):
 #             return Par()
-#         elif other.name == 'earth':
+#         elif isinstance(other,Earth):
 #             return Dirt()
+#         else:
+#             return None
 #
 #
 # class Fire:
@@ -3217,13 +3219,13 @@ import random
 #
 #
 # class Shtorm:
-#     def __init__(self):
-#         self.name = 'shtorm'
+#     def __str__(self):
+#         return 'storm'
 #
 #
 # class Par:
-#     def __init__(self):
-#         self.name = 'par'
+#     def __str__(self):
+#         return 'par'
 #
 #
 # class Dirt:
@@ -3246,9 +3248,8 @@ import random
 #         self.name = 'magma'
 #
 #
-# a, b = Water(), Air()
-# c = a + b
-# print(c.name)
+# c = Water() + 5
+# print(c)
 
 
 
@@ -3355,11 +3356,11 @@ import random
 
 # Задача 9. Крестики-нолики
 
-class Cell:
-    def __init__(self,n,m):
-        self.number = int(str(m) + str(n))
-        self.setn = '| |'
-        self.k = str(self.number) + str(self.setn)
+# class Cell:
+#     def __init__(self,n,m):
+#         self.number = int(str(m) + str(n))
+#         self.setn = '| |'
+#         self.k = str(self.number) + str(self.setn)
 
 
 # class Board:
@@ -3420,3 +3421,243 @@ class Cell:
 #         break
 #     if turn(b,p2) is True:
 #         break
+
+
+# class Person:
+#     __count = 0
+#
+#     def __init__(self, name, age):
+#         self.__name = name
+#         self.set_age(age)
+#         self.__count += 1
+#
+#     def __str__(self):
+#         return f"{self.__name}, {self.__age}"
+#
+#     def get_count(self):
+#         return self.__count
+#
+#     def set_age(self,age):
+#         self.__age = age
+#
+#     def get_age(self):
+#         return self.__age
+#
+# p = Person('mi',12)
+# print(p)
+# print(p.get_count())
+
+
+# class Ship:
+#     def __init__(self,model):
+#         self.__model = model
+#
+#     def __str__(self):
+#         return '\n{model}'.format(
+#             model=self.__model
+#         )
+#
+#     def sail(self):
+#         return f'{self.__model} плывет'
+#
+#
+# class WarShip(Ship):
+#     def __init__(self,model,gun):
+#         super().__init__(model)
+#         self.gun = gun
+#
+#     def attack(self):
+#         print(f'\n {self.sail()},атакуем оружием {self.gun}')
+#
+# warsip = WarShip('admiral', 'rainmetal')
+# warsip.attack()
+#
+# class CargoShip(Ship):
+#     def __init__(self,model):
+#         super().__init__(model)
+#         self.tonnage = 0
+#
+#     def load(self):
+#         self.tonnage += 1
+#
+#     def unload(self):
+#         self.tonnage -= 1
+#
+# car = CargoShip('mirniy')
+# car.sail()
+
+# class DivisionError(Exception):
+#     pass
+#
+# a,d = 2,3
+# if a/d < 1:
+#     raise DivisionError
+
+# class Person:
+#     __count = 0
+#
+#     def __init__(self, name, age):
+#         self.__name = name
+#         self.set_age(age)
+#         self.__count += 1
+#
+#     def __str__(self):
+#         return f"{self.__name}, {self.__age}"
+#
+#     def get_count(self):
+#         return self.__count
+#
+#     def set_age(self,age):
+#         self.__age = age
+#
+#     def get_age(self):
+#         return self.__age
+#
+#     def get_name(self):
+#         return self.__name
+#
+#
+# class Student(Person):
+#     def __init__(self,name,age,unik):
+#         super().__init__(name,age)
+#         self.unik = unik
+#
+#     def __str__(self):
+#         info = super().__str__()
+#         info = '\n'.join(
+#             (
+#                 info,
+#                 f'{self.get_name()} учится в {self.unik}, ему {self.get_age()}'
+#             )
+#         )
+#         return info
+#
+#
+# s = Student('Mike',12,'BMSTU')
+# print(s)
+
+
+# class FlyAble:
+#     def __init__(self,height,speed):
+#         self.set_height(height)
+#         self.set_speed(speed)
+#
+#     def __str__(self):
+#         return f'высота {self.__height}, скорость {self.__speed}'
+#
+#     def set_height(self,height):
+#         self.__height = height
+#
+#     def set_speed(self,speed):
+#         self.__speed = speed
+#
+#     def get_speed(self):
+#         return self.__speed
+#
+#     def get_height(self):
+#         return self.__height
+#
+#     def settle_down(self):
+#         self.set_height(0)
+#
+#
+# class Batterfly(FlyAble):
+#     def __init__(self,speed,height):
+#         super().__init__(height,speed)
+#         self.name = 'babochka'
+#
+#     def fly_up(self):
+#         self.set_height(1)
+#
+#     def fly(self):
+#         self.set_speed(1)
+#
+#
+# class Rocket(FlyAble):
+#     def __init__(self,name,speed,height):
+#         super().__init__(height,speed)
+#         self.name = name
+#         self.__blowed = False
+#
+#     def __str__(self):
+#         if self.get_blow() is True:
+#             return 'ракета взорвалась'
+#         else:
+#             return f'высота ракеты {self.name} = {self.get_height()}, скорость = {self.get_speed()}'
+#
+#     def fly_up(self):
+#         self.set_height(500)
+#
+#     def fly_ahead(self):
+#         self.set_speed(1000)
+#
+#     def blow_up(self):
+#         self.set_blow()
+#
+#     def set_blow(self):
+#         self.__blowed = True
+#
+#     def get_blow(self):
+#         return self.__blowed
+#
+# r = Rocket('союз',0,0)
+# print(r)
+# r.fly_up()
+# print(r)
+# r.fly_ahead()
+# print(r)
+# r.blow_up()
+# print(r)
+
+# docstring
+
+class Unit:
+
+    """
+    Базовый класс юнита
+
+    Args:
+        hp (int): передается здоровье юнита
+    """
+    def __init__(self,hp):
+        self.set_hp(hp)
+
+    def __str__(self):
+        return f'{self.get_hp()}'
+
+    def get_hit(self,damage):
+        self.__hp -= damage
+
+    def set_hp(self,hp):
+        self.__hp = hp
+
+    def get_hp(self):
+        return self.__hp
+
+    """
+    Геттер для получения здоровья
+    :param hp: здоровье
+    """
+
+class Soldier(Unit):
+    def get_hit(self,damage):
+        self.set_hp(self.get_hp() - damage)
+
+class Cityzen(Unit):
+    def get_hit(self,damage):
+        self.set_hp(self.get_hp() - 2*damage)
+
+# u = Soldier(30)
+# print(u)
+# u.get_hit(20)
+# print(u)
+# cit = Cityzen(40)
+# print(cit)
+# cit.get_hit(20)
+# print(cit)
+
+# print(Unit.__doc__)
+
+
+# Задача 1. Налоги
+
