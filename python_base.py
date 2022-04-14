@@ -3661,3 +3661,466 @@ class Cityzen(Unit):
 
 # Задача 1. Налоги
 
+# class Property:
+#     def __init__(self,worth):
+#         self.set_worth(worth)
+#         self.set_tax()
+#
+#     def set_worth(self,worth):
+#         self.__worth = worth
+#
+#     def get_worth(self):
+#         return self.__worth
+#
+#
+# class Apartment(Property):
+#     def set_tax(self):
+#         self.__tax = self.get_worth() / 1000
+#
+#     def get_tax(self):
+#         return self.__tax
+#
+#
+# class Car(Property):
+#     def set_tax(self):
+#         self.__tax = self.get_worth() / 200
+#
+#     def get_tax(self):
+#         return self.__tax
+#
+#
+# class CountryHouse(Property):
+#     def set_tax(self):
+#         self.__tax = self.get_worth() / 500
+#
+#     def get_tax(self):
+#         return self.__tax
+#
+#
+# def summ(lis, s, mon):
+#     for i in lis:
+#         s += i.get_tax()
+#     if mon < s:
+#         return f'нехватает денег на налоги, налоги = {s}'
+#     else:
+#         return 'налоги оплачены'
+
+# money = 1000
+# car_price = 38000
+# house_price = 150000
+# countryhouse_price = 250000
+# property_list = [Car(car_price),Apartment(house_price),CountryHouse(countryhouse_price)]
+# print(summ(property_list,0, money))
+
+
+# Задача 2. Карма
+
+# class KillError(Exception):
+#     name = 'KillError'
+#     pass
+#
+#
+# class DrunkError(Exception):
+#     name = 'DrunkError'
+#     pass
+#
+# class CarCrashError(Exception):
+#     name = 'CarCrashError'
+#     pass
+#
+#
+# class GluttonyError(Exception):
+#     name = 'GluttonyError'
+#     pass
+#
+#
+# class DepressionError(Exception):
+#     name = 'DepressionError'
+#     pass
+#
+# def one_day(karma,f,ex_list = [DepressionError,GluttonyError,CarCrashError,DrunkError,KillError]):
+#     try:
+#         karma += random.randint(1, 7)
+#         if random.randint(1, 10) == 10:
+#             ex = random.choice(ex_list)
+#             f.write(str(ex.name+'\n'))
+#             raise ex
+#     except DepressionError:
+#         karma -= 10
+#     except GluttonyError:
+#         karma -= 20
+#     except CarCrashError:
+#         karma -= 30
+#     except DrunkError:
+#         karma += 20
+#     except KillError:
+#         karma -= 50
+#     return karma
+#
+# def karma_life(day = 0, karma = 0):
+#     f = open('karma_log.txt','w')
+#     while karma < 500:
+#         day += 1
+#         karma = one_day(karma,f)
+#     return f'прожито дней ради кармы в 500: {day}'
+#
+# print(karma_life())
+
+
+# Задача 3. Свой словарь
+
+# class MyDict(dict):
+#     def get(self, key):
+#         try:
+#             return self[key]
+#         except KeyError:
+#             return 0
+#
+#
+# p = MyDict({1: 'deff',2:'ewe',3:'wwww'})
+# print(p.get(4))
+
+
+# Задача 4. Компания
+
+# class Person:
+#     def __init__(self,name,surname,age):
+#         self.set_name(name)
+#         self.set_surname(surname)
+#         self.set_age(age)
+#
+#     def set_name(self,name):
+#         self.__name = name
+#
+#     def get_name(self):
+#         return self.__name
+#
+#     def set_surname(self,surname):
+#         self.__surname = surname
+#
+#     def get_surname(self):
+#         return self.__surname
+#
+#     def set_age(self, age):
+#         self.__age = age
+#
+#     def get_age(self):
+#         return self.__age
+#
+#
+# class Employee(Person):
+#     def salary(self):
+#         pass
+#
+# class Manager(Employee):
+#     def __init__(self,name,surname,age,salary=13000):
+#         super().__init__(name,surname,age)
+#         self.set_salary(salary)
+#
+#     def set_salary(self,salary):
+#         self.__salary = salary
+#
+#     def get_salary(self):
+#         return self.__salary
+#
+#
+# class Agent(Employee):
+#     def __init__(self,name,surname,age,amount,salary=5000):
+#         super().__init__(name,surname,age)
+#         self.set_salary(amount, salary)
+#
+#     def set_salary(self,amount,salary):
+#         self.__salary = amount*0.05 + salary
+#
+#     def get_salary(self):
+#         return self.__salary
+#
+# class Worker(Employee):
+#     def __init__(self,name,surname,age,hours):
+#         super().__init__(name,surname,age)
+#         self.__hours = hours
+#         self.set_salary(hours)
+#
+#     def set_salary(self,hours):
+#         self.__salary = hours*100
+#
+#     def get_salary(self):
+#         return self.__salary
+#
+# list_employees = []
+# for i in [Manager('mike','vazovski',24),Agent('ash','bradley',25,200000),Worker('babayka','mini',4,176)]:
+#     for j in range(3):
+#         list_employees.append(i)
+# for i in list_employees:
+#     print(i.get_name(),i.get_surname(),i.get_salary())
+
+
+# Задача 5. А-а-автомобиль!
+
+# class Car:
+#     def __init__(self,base,angle):
+#         self.set_base(base)
+#         self.set_angle(angle)
+#
+#     def set_base(self,base):
+#         self.__base = base
+#
+#     def get_base(self):
+#         return self.__base
+#
+#     def set_angle(self,angle):
+#         self.__angle = angle
+#
+#     def get_angle(self):
+#         return self.__angle
+#
+#     def moove(self,rang):
+#         new_base = [self.get_base()[0] + rang*math.cos(self.get_angle()),self.get_base()[1] + rang*math.sin(self.get_angle())]
+#         return new_base
+#
+#     def change_angle(self,a):
+#         self.set_angle(self.get_angle() + a)
+#
+#
+# class Buss(Car):
+#     def __init__(self,base,angle,passengers,money=0):
+#         super().__init__(base,angle)
+#         self.set_passengers(passengers)
+#         self.set_money(money)
+#
+#     def __str__(self):
+#         return f'В автобусе едут {self.get_passengers()} пассажиров, заработано {self.get_money()} денег. Текущая координата: {self.get_base()}, угол = {self.get_angle()}'
+#
+#     def set_passengers(self,passengers):
+#         self.__passengers = passengers
+#
+#     def get_passengers(self):
+#         return self.__passengers
+#
+#     def set_money(self,money):
+#         self.__money = money
+#
+#     def get_money(self):
+#         return self.__money
+#
+#     def moove(self,rang):
+#         new_base = [self.get_base()[0] + rang*math.cos(self.get_angle()),self.get_base()[1] + rang*math.sin(self.get_angle())]
+#         self.set_base(new_base)
+#         self.set_money(self.get_money() + 10*self.get_passengers())
+#         return new_base
+#
+#     def enter(self,n):
+#         self.set_passengers(self.get_passengers() + n)
+#
+#     def out(self,n):
+#         if n <= self.get_passengers():
+#             self.set_passengers(self.get_passengers() - n)
+#         else:
+#             self.set_passengers(0)
+#
+#
+# b = Buss([1,1],30,4)
+# while b.get_passengers() < 25:
+#     b.moove(20)
+#     b.enter(3)
+#     print(b)
+#     b.out(1)
+#     b.change_angle(8)
+# while b.get_passengers() > 0:
+#     b.moove(35)
+#     b.enter(1)
+#     print(b)
+#     b.out(4)
+#     b.change_angle(10)
+
+
+# Задача 6. Совместное проживание 2
+
+# class Home:
+#     def __init__(self,money=100,food=50,catfood=30,dirt=0):
+#         self.set_money(money)
+#         self.set_food(food)
+#         self.set_catfood(catfood)
+#         self.set_dirt(dirt)
+#
+#     def __str__(self):
+#         return f'В доме {self.get_money()} денег, {self.get_food()} еды в холодильнике, {self.get_catfood()} еды котика, грязи - {self.get_dirt()}'
+#
+#     def set_money(self,money):
+#         self.__money = money
+#
+#     def get_money(self):
+#         return self.__money
+#
+#     def set_food(self,food):
+#         self.__food = food
+#
+#     def get_food(self):
+#         return self.__food
+#
+#     def set_catfood(self,catfood):
+#         self.__catfood = catfood
+#
+#     def get_catfood(self):
+#         return self.__catfood
+#
+#     def set_dirt(self,dirt):
+#         self.__dirt = dirt
+#
+#     def get_dirt(self):
+#         return self.__dirt
+#
+#     def new_day(self,husband,wife,cat):
+#         self.set_dirt(self.get_dirt() + 5)
+#         if self.get_dirt() >= 90:
+#             husband.set_ishappy(husband.get_ishappy() - 10)
+#             wife.set_ishappy(wife.get_ishappy() - 10)
+#         husbanddo = random.randint(1,2)
+#         wifedo = random.randint(1,3)
+#         catdo = random.randint(1,2)
+#         if husbanddo == 1:
+#             husband.play()
+#         elif husbanddo == 2:
+#             husband.work(self)
+#         husband.human_eat(self, random.randint(10, 15))
+#         if wifedo == 1:
+#             wife.buy_catfood(self,30)
+#         elif wifedo == 2:
+#             wife.buy_food(self,90)
+#         elif wifedo == 3:
+#             wife.home_clean(self)
+#         wife.human_eat(self,random.randint(10,12))
+#         cat.cat_eat(self,9)
+#         if catdo == 1:
+#             cat.sleep()
+#         elif catdo == 2:
+#             cat.drat_oboi(self)
+#         if random.randint(1,91) == 45:
+#             wife.buy_shuba(self)
+#
+#
+# class HomeUnit:
+#     def __init__(self,name,ishunger=30):
+#         self.set_name(name)
+#         self.set_ishunger(ishunger)
+#         self.set_dead(False)
+#
+#     def set_dead(self, flag):
+#         self.__dead = flag
+#
+#     def get_dead(self):
+#         return self.__dead
+#
+#     def set_name(self, name):
+#         self.__name = name
+#
+#     def get_name(self):
+#         return self.__name
+#
+#     def set_ishunger(self, ishunger):
+#         self.__ishunger = ishunger
+#
+#     def get_ishunger(self):
+#         return self.__ishunger
+#
+#     def human_eat(self,home,foodamount):
+#         self.set_ishunger(self.get_ishunger() + foodamount)
+#         home.set_food(home.get_food() - foodamount)
+#
+#     def cat_eat(self,home,foodamount):
+#         self.set_ishunger(self.get_ishunger() + foodamount)
+#         home.set_catfood(home.get_catfood() - foodamount)
+#
+#
+# class Husband(HomeUnit):
+#     def __init__(self,name,ishunger=30,ishappy=100):
+#         super().__init__(name,ishunger)
+#         self.set_ishappy(ishappy)
+#
+#     def __str__(self):
+#         return f'{self.get_name()}, уроваень счастья: {self.get_ishappy()}, уровень сытости: {self.get_ishunger()}'
+#
+    # def set_ishappy(self, ishappy):
+    #     self.__ishappy = ishappy
+    #     if self.__ishappy < 0:
+    #         self.set_dead(True)
+#
+#     def get_ishappy(self):
+#         return self.__ishappy
+#
+#     def play(self):
+#         self.set_ishunger(self.get_ishunger() - 10)
+#         self.set_ishappy(self.get_ishappy() + 20)
+#
+#     def work(self,home):
+#         self.set_ishunger(self.get_ishunger() - 10)
+#         home.set_money(home.get_money() + 150)
+#
+#     def glady_kota(self,cat):
+#         self.set_ishunger(self.get_ishunger() - 10)
+#         self.set_ishappy(self.get_ishappy() + 5)
+#
+# class Wife(HomeUnit):
+#     def __init__(self,name,ishunger=30,ishappy=100):
+#         super().__init__(name,ishunger)
+#         self.set_ishappy(ishappy)
+#
+#     def __str__(self):
+#         return f'{self.get_name()}, уроваень счастья: {self.get_ishappy()}, уровень сытости: {self.get_ishunger()}'
+#
+    # def set_ishappy(self, ishappy):
+    #     self.__ishappy = ishappy
+    #     if self.__ishappy < 0:
+    #         self.set_dead(True)
+#
+#     def get_ishappy(self):
+#         return self.__ishappy
+#
+#     def buy_food(self,home,newfood):
+#         self.set_ishunger(self.get_ishunger() - 10)
+#         home.set_food(home.get_food() + newfood)
+#         home.set_money(home.get_money() - newfood)
+#
+#     def buy_catfood(self,home,newfood):
+#         self.set_ishunger(self.get_ishunger() - 10)
+#         home.set_catfood(home.get_catfood() + newfood)
+#         home.set_money(home.get_money() - newfood)
+#
+#     def buy_shuba(self,home):
+#         self.set_ishunger(self.get_ishunger() - 10)
+#         self.set_ishappy(self.get_ishappy() + 60)
+#         home.set_money(home.get_money() - 350)
+#
+#     def home_clean(self,home):
+#         if home.get_dirt() > 60:
+#             home.set_dirt(home.get_dirt() - 80)
+#
+# class Cat(HomeUnit):
+#     def __init__(self, name, ishunger=10):
+#         super().__init__(name, ishunger)
+#
+#     def __str__(self):
+#         return f'{self.get_name()}, уровень сытости: {self.get_ishunger()}'
+#
+#     def drat_oboi(self,home):
+#         home.set_dirt(home.get_dirt() + 5)
+#
+#     def sleep(self):
+#         pass
+#
+# home = Home()
+# h = Husband('Mike')
+# w = Wife('Eleonora')
+# c = Cat('Barsik')
+#
+# for i in range(366):
+#     if h.get_dead() == True or w.get_dead() == True or c.get_dead() == True:
+#         break
+#     else:
+#         home.new_day(h,w,c)
+#         print(home)
+#         print(h,w,c)
+
+
+# Задача 7. Стек
+
