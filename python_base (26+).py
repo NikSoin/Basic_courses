@@ -175,27 +175,43 @@
 # for i in endless():
 #     print(i)
 
-def prost(n):
-    if n==0 or n==1:
-        return True
-    d = 2
-    while n % d != 0:
-        d += 1
-    return d == n
+# def prost(n):
+#     if n==1:
+#         return True
+#     d = 2
+#     while n % d != 0:
+#         d += 1
+#     return d == n
+#
+# def prost_gen(n):
+#     count = 0
+#     number = 1
+#     r = 1
+#     while count <= n:
+#         yield r
+#         while prost(number) is False:
+#             number += 1
+#         r = number
+#         number += 1
+#         count += 1
+#
+#
+# for i in prost_gen(5):
+#     print(i)
 
-def prost_gen(n):
-    count = 0
-    number = 1
-    r = 1
-    while count <= n:
-        yield r
-        while prost(number) is False:
-            number += 1
-        r = number
-        number += 1
-        count += 1
 
 
-for i in prost_gen(5):
-    print(i)
+# def read(f):
+#     c = int(f[0])
+#     for i in range(len(f)):
+#         c = int(f[i])
+#         yield c
+#
+#
+# s = 0
+# f = '4 2 3 5'
+# for i in read(f.split()):
+#     s += i
+# print(s)
+
 
