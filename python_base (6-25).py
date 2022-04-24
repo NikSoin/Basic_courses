@@ -69,22 +69,22 @@
 
 # #while десятая задача №10========================================
 # import random
-# b = 100
 # m = 0
+# b = 100
 # c = int(input('zagadai chislo: '))
-# n = random.randint(m,b)
+# n = 50
 # while(True):
 #     print(m,b)
 #     ot = int(input(f'Твое число =(1), >(2), <(3) {n}?'))
 #     if(ot == 1):
+#         print('вы угадали число')
 #         break
 #     elif(ot == 2):
-#         m = n
+#         m = n+1
 #         n = random.randint(m,b)
 #     elif(ot == 3):
-#         b = n
+#         b = n-1
 #         n = random.randint(m,b)
-# print('ugadal')
 # #===============================================================\
 
 # for i in 114, 12, 14, 10605, 4907, 450:
