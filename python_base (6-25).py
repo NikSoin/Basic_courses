@@ -68,23 +68,23 @@
 # print(l)
 
 # #while десятая задача №10========================================
-# import random
-# m = 0
-# b = 100
-# c = int(input('zagadai chislo: '))
-# n = 50
-# while(True):
-#     print(m,b)
-#     ot = int(input(f'Твое число =(1), >(2), <(3) {n}?'))
-#     if(ot == 1):
+# bottom = 0
+# top = 100
+# third = 0
+# guessed = int(input('zagadai chislo: '))
+# number = 50
+# while True:
+#     print(bottom, top)
+#     otvet = int(input(f'Твое число =(1), >(2), <(3) {number}?  '))
+#     if(otvet == 1) and number == guessed:
 #         print('вы угадали число')
 #         break
-#     elif(ot == 2):
-#         m = n+1
-#         n = random.randint(m,b)
-#     elif(ot == 3):
-#         b = n-1
-#         n = random.randint(m,b)
+#     elif(otvet == 2):
+#         bottom = number + 1
+#         number = (bottom + top)//2
+#     elif(otvet == 3):
+#         top = number - 1
+#         number = (bottom + top)//2
 # #===============================================================\
 
 # for i in 114, 12, 14, 10605, 4907, 450:
